@@ -21,7 +21,13 @@ namespace R5T.L0084.F001
                 password);
         }
 
-        public bool Push_Changes(
+        public string Get_RepositoryUrl(string pathInRepositoryDirectory)
+        {
+            var output = Instances.LibGit2SharpOperator.Get_RepositoryRemoteUrl(pathInRepositoryDirectory);
+            return output;
+        }
+
+        public bool Push_WithStageAndCommit(
             string repositoryDirectoryPath,
             string commitMessage,
             string authorName,
@@ -29,7 +35,7 @@ namespace R5T.L0084.F001
             string username,
             string password)
         {
-            var output = Instances.LibGit2SharpOperator.Push_Changes(
+            var output = Instances.LibGit2SharpOperator.Push_WithStageAndCommit(
                 repositoryDirectoryPath,
                 commitMessage,
                 authorName,
